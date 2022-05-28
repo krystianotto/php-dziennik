@@ -1,12 +1,11 @@
-import logo from '../../logo.svg';
-import './style.css';
+import React from 'react';
 import { Link } from 'react-router-dom';
+import './style.scss';
 
-export function PageTwo() {
+const HomePage = () => {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
         <p>
           Edit <code>src/App.js</code> and save to reload.
         </p>
@@ -21,16 +20,16 @@ export function PageTwo() {
       </header>
 
       <div className="App-line"></div>
-      
-      <main className="App-main">
-        <p>
-          Page 2
-        </p>
 
-        <Link to="/" className="App-link">
-          Previous Page
+      <main className="App-main">
+        <p>Page 1</p>
+
+        <Link to="/page2" className="App-link">
+          Next Page
         </Link>
       </main>
     </div>
   );
-}
+};
+
+export default HomePage;
