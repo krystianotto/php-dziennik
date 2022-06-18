@@ -3,16 +3,24 @@ import PropTypes from 'prop-types';
 
 import Authentication from 'api/Authentication';
 
+const REGISTER_TYPE = 'Register';
+const LOGIN_TYPE = 'Login';
+
 const Form = ({ type }) => {
   const [userData, setUserData] = useState({ name: '', email: '', password: '' });
 
   const handleRegisterUser = useCallback(async () => {
-    const response =
-      type === 'Register'
-        ? await Authentication.addNewUser(userData)
-        : await Authentication.logIn(userData);
+    try {
+      const response =
+        type === REGISTER_TYPE
+          ? await Authentication.addNewUser(userData)
+          : await Authentication.logIn(userData);
 
-    console.log(response);
+      const accessToken = response.data?.access_token;
+      document.cookie = 'token=' + accessToken + '; max-age=2147483647;';
+    } catch (error) {
+      console.error(error);
+    }
   }, [userData, type]);
 
   return (
@@ -41,17 +49,17 @@ const Form = ({ type }) => {
         }}
       />
 
-      <button onClick={handleRegisterUser}>Rejestracja</button>
+      <button onClick={handleRegisterUser}>{type}</button>
     </>
   );
 };
 
 Form.propTypes = {
-  type: PropTypes.oneOf(['Login', 'Register']),
+  type: PropTypes.oneOf([LOGIN_TYPE, REGISTER_TYPE]),
 };
 
 Form.defaultProps = {
-  type: 'Login',
+  type: LOGIN_TYPE,
 };
 
 export default Form;
