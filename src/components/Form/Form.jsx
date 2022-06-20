@@ -1,43 +1,52 @@
-import React, { useState, useCallback } from 'react';
+import React, { useState, useCallback, useContext } from 'react';
 import PropTypes from 'prop-types';
 
 import Authentication from 'api/Authentication';
+
+import UserContext from 'context/UserContext';
 
 const REGISTER_TYPE = 'Register';
 const LOGIN_TYPE = 'Login';
 
 const Form = ({ type }) => {
-  const [userData, setUserData] = useState({ name: '', email: '', password: '' });
+  const [data, setData] = useState({ name: '', email: '', password: '' });
 
-  const handleRegisterUser = useCallback(async () => {
+  const { setUserData } = useContext(UserContext);
+
+  const handleButtonClick = useCallback(async () => {
     try {
       const response =
         type === REGISTER_TYPE
-          ? await Authentication.addNewUser(userData)
-          : await Authentication.logIn(userData);
+          ? await Authentication.addNewUser(data)
+          : await Authentication.logIn(data);
 
-      const accessToken = response.data?.access_token;
+      const { access_token: accessToken, user_id: userId, email, name } = response.data ?? {};
+      setUserData({ userId, email, name });
       document.cookie = 'token=' + accessToken + '; max-age=2147483647;';
     } catch (error) {
       console.error(error);
     }
-  }, [userData, type]);
+  }, [data, type]);
 
   return (
     <>
-      <label>Nazwa</label>
-      <input
-        type="text"
-        onChange={(e) => {
-          setUserData((data) => ({ ...data, name: e.target.value }));
-        }}
-      />
+      {type === REGISTER_TYPE && (
+        <>
+          <label>Nazwa</label>
+          <input
+            type="text"
+            onChange={(e) => {
+              setData((data) => ({ ...data, name: e.target.value }));
+            }}
+          />
+        </>
+      )}
 
       <label>Email</label>
       <input
         type="email"
         onChange={(e) => {
-          setUserData((data) => ({ ...data, email: e.target.value }));
+          setData((data) => ({ ...data, email: e.target.value }));
         }}
       />
 
@@ -45,11 +54,11 @@ const Form = ({ type }) => {
       <input
         type="password"
         onChange={(e) => {
-          setUserData((data) => ({ ...data, password: e.target.value }));
+          setData((data) => ({ ...data, password: e.target.value }));
         }}
       />
 
-      <button onClick={handleRegisterUser}>{type}</button>
+      <button onClick={handleButtonClick}>{type}</button>
     </>
   );
 };

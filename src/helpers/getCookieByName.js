@@ -1,5 +1,3 @@
-// returns the cookie with the given name,
-// or undefined if not found
 const getCookieByName = (name) => {
   let matches = document.cookie.match(
     // eslint-disable-next-line

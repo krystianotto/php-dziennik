@@ -8,7 +8,8 @@ const Navigation = () => {
       <NavLink to="login">Login</NavLink>
       <NavLink to="userdetails">User Details</NavLink>
       <NavLink to="grades">Grades</NavLink>
-      <NavLink to="calendar">Calendar</NavLink>
+
+      <div>LogIn/LogOut</div>
     </nav>
   );
 };
