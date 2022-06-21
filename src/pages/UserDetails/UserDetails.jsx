@@ -9,12 +9,20 @@ import User from 'api/User';
 import UserContext from 'context/UserContext';
 
 const UserDetails = () => {
-  const [data, setData] = useState({});
+  const [data, setData] = useState({
+    name: '',
+    surname: '',
+    city: '',
+    country: '',
+    house_number: '',
+    street: '',
+    postcode: '',
+  });
 
   const { userData, setUserData } = useContext(UserContext);
 
   const onValueChange = async (fieldName, value) => {
-    const { userId } = userData;
+    const { user_id: userId } = userData;
 
     const response = await User.updateUserData(userId, { [fieldName]: value });
 
@@ -70,7 +78,7 @@ const UserDetails = () => {
 
   useEffect(() => {
     const getUserData = async () => {
-      const { userId } = userData;
+      const { user_id: userId } = userData;
 
       const response = await User.getUserData(userId);
 

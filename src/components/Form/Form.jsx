@@ -20,8 +20,10 @@ const Form = ({ type }) => {
           ? await Authentication.addNewUser(data)
           : await Authentication.logIn(data);
 
-      const { access_token: accessToken, user_id: userId, email, name } = response.data ?? {};
-      setUserData({ userId, email, name });
+      const { access_token: accessToken, user_data: userData = {} } = response.data ?? {};
+      const { id: userId, email, name } = userData;
+
+      setUserData({ user_id: userId, email, name });
       document.cookie = 'token=' + accessToken + '; max-age=2147483647;';
     } catch (error) {
       console.error(error);

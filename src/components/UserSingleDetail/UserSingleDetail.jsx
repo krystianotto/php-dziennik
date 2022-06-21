@@ -5,6 +5,16 @@ const BUTTON_TYPE_EDIT = 'Edit';
 const BUTTON_TYPE_SAVE = 'Save';
 const BUTTON_TYPE_CANCEL = 'Cancel';
 
+const fieldNameToLabel = {
+  name: 'Name',
+  surname: 'Nazwisko',
+  country: 'Państwo',
+  street: 'Ulica',
+  house_number: 'Nr. domu',
+  postcode: 'Kod pocztowy',
+  city: 'Miasto',
+};
+
 const UserSingleDetail = ({ fieldName, inputType, value, onClick }) => {
   const [inputValue, setInputValue] = useState(value);
   const [isEditMode, setIsEditMode] = useState(false);
@@ -32,8 +42,15 @@ const UserSingleDetail = ({ fieldName, inputType, value, onClick }) => {
     inputRef.current.focus();
   }, [inputRef, isEditMode]);
 
+  useEffect(() => {
+    setInputValue(value);
+  }, [value]);
+
   return (
     <div>
+      <div>
+        <label>{fieldNameToLabel[fieldName]}</label>
+      </div>
       <input
         disabled={!isEditMode}
         type={inputType}
