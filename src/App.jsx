@@ -11,6 +11,8 @@ import Navigation from 'components/Navigation';
 
 import { UserProvider } from 'context/UserContext';
 
+import './assets/css/main.scss';
+
 const App = () => (
   <BrowserRouter>
     <UserProvider>

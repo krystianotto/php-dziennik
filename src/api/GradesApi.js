@@ -1,7 +1,7 @@
 import BaseApi from './BaseApi';
 
 export default {
-  getGrade(userId) {
+  getGrades(userId) {
     return BaseApi.get(`grade?user_id=${userId}`);
   },
 };

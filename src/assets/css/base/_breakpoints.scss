@@ -1,0 +1,23 @@
+$range-mobile: max-width;
+$range-desktop: min-width;
+
+$breakpoints: (
+  "mobile": $mobile-breakpoint,
+  "desktop": $desktop-breakpoint,
+) !default;
+
+@mixin media-breakpoint($breakpoint) {
+  $range: "";
+
+  @if $breakpoint == mobile {
+    $range: $range-mobile;
+  } @else {
+    $range: $range-desktop;
+  }
+
+  @if map-has-key($breakpoints, $breakpoint) {
+    @media ($range: map-get($breakpoints , $breakpoint)) {
+      @content;
+    }
+  }
+}

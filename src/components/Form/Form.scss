@@ -1,0 +1,6 @@
+input {
+
+  @include media-breakpoint('desktop') {
+    width: 150px;
+  }
+}

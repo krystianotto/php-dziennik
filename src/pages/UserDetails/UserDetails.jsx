@@ -4,7 +4,7 @@ import UserSingleDetail from 'components/UserSingleDetail';
 
 import isEmpty from 'helpers/isEmpty';
 
-import User from 'api/User';
+import UserApi from 'api/UserApi';
 
 import UserContext from 'context/UserContext';
 
@@ -24,7 +24,7 @@ const UserDetails = () => {
   const onValueChange = async (fieldName, value) => {
     const { user_id: userId } = userData;
 
-    const response = await User.updateUserData(userId, { [fieldName]: value });
+    const response = await UserApi.updateUserData(userId, { [fieldName]: value });
 
     const { data } = response ?? {};
 
@@ -80,7 +80,7 @@ const UserDetails = () => {
     const getUserData = async () => {
       const { user_id: userId } = userData;
 
-      const response = await User.getUserData(userId);
+      const response = await UserApi.getUserData(userId);
 
       const { data } = response ?? {};
 

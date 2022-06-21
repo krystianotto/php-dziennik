@@ -1,0 +1,21 @@
+$c-error: #c62828;
+$c-confirm: #00897b;
+$c-warning: #ff8f00;
+$c-border: rgb(230, 230, 230);
+
+// layout
+$mobile-breakpoint: 1203px;
+$desktop-breakpoint: 1204px;
+
+// z-index
+$i-negative: -1;
+$i-zero: 0;
+$i-one: 1;
+$i-two: 2;
+// $i-negative: 3;
+$i-dropdown: 4;
+// $i-: 5;
+$i-sticky: 6;
+$i-modal-backdrop: 7;
+$i-modal: 8;
+$i-master: 9;
