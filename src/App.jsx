@@ -17,13 +17,15 @@ const App = () => (
   <BrowserRouter>
     <UserProvider>
       <Navigation />
-      <Switch>
-        <Route path="/register" exact component={Register} />
-        <Route path="/login" exact component={Login} />
-        <Route path="/userdetails" exact component={UserDetails} />
-        <Route path="/grades" exact component={Grades} />
-        <Route path="*" component={NotFound} />
-      </Switch>
+      <main className="container">
+        <Switch>
+          <Route path="/register" exact component={Register} />
+          <Route path="/login" exact component={Login} />
+          <Route path="/userdetails" exact component={UserDetails} />
+          <Route path="/grades" exact component={Grades} />
+          <Route path="*" component={NotFound} />
+        </Switch>
+      </main>
     </UserProvider>
   </BrowserRouter>
 );

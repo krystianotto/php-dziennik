@@ -1,6 +1,36 @@
-input {
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
 
-  @include media-breakpoint('desktop') {
-    width: 150px;
+  &__input-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  label {
+    text-align: center;
+  }
+
+  input {
+    all: unset;
+    width: 270px;
+    text-align: center;
+    border-bottom: 1px solid rgb(117, 117, 117);
+    font-size: 16px;
+    font-weight: 400;
+    margin-top: 12px
+  }
+
+  button {
+    @extend .btn;
+    background-color: rgb(8, 8, 8);
+    color: red;
+    border-color: rgb(41, 41, 41);
+    color: white;
+    width: 226px;
+    text-align: center;
   }
 }

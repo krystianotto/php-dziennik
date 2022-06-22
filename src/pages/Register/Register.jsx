@@ -4,8 +4,8 @@ import Form from 'components/Form';
 
 const Register = () => {
   return (
-    <section>
-      <div>Register View</div>
+    <section className="register">
+      <div className="register__title">Sign In</div>
       <Form type="Register" />
     </section>
   );

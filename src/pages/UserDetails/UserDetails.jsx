@@ -94,7 +94,12 @@ const UserDetails = () => {
 
   if (isEmpty(data)) return null;
 
-  return <section>{renderUserData()}</section>;
+  return (
+    <section className="user-details">
+      <h3 className="user-details__title">About You</h3>
+      {renderUserData()}
+    </section>
+  );
 };
 
 export default UserDetails;

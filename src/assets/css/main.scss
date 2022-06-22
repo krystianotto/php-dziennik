@@ -1,7 +1,9 @@
 @import "./base/variables";
 @import "./base/breakpoints";
 
-@import "/src/components/Form/Form.scss";
+*, *::after, *::before {
+  box-sizing: border-box;
+}
 
 body {
   margin: 0;
@@ -16,3 +18,42 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
   monospace;
 }
+
+.container {
+  display: flex;
+  // flex-direction: column-reverse;
+  height: 100%;
+  margin: 0 24px 66px 24px;
+  justify-content: space-between;
+
+  &:first-child {
+    width: 100%;
+  }
+}
+
+.btn {
+  all: unset;
+  cursor: pointer;
+  color: rgba(0, 0, 0, .68);
+  border: 1px solid rgba(0, 0, 0, .54);
+  height: 33px;
+  line-height: 33px;
+  font-size: 16px;
+  padding: 0 14px;
+  border-radius: 99em;
+  margin-right: 10px;
+}
+
+.btn--green {
+  @extend .btn;
+  border-color: #0f730c;
+  color: #0f730c;
+}
+
+@import "/src/components/Form/Form.scss";
+@import "/src/components/UserSingleDetail/UserSingleDetail.scss";
+@import "/src/components/Navigation/Navigation.scss";
+@import "/src/components/GradesGrid/GradesGrid.scss";
+@import "/src/pages/UserDetails/UserDetails.scss";
+@import "/src/pages/Login/Login.scss";
+@import "/src/pages/Register/Register.scss";

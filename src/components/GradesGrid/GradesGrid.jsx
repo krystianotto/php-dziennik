@@ -5,8 +5,6 @@ import { v4 as uuidv4 } from 'uuid';
 import groupBy from 'helpers/groupBy';
 
 const GradesGrid = ({ grades }) => {
-  console.log(grades);
-
   const getGradeInfo = () => {
     const groupedGrades = groupBy(grades, (grade) => grade.subject_id);
 
@@ -15,10 +13,12 @@ const GradesGrid = ({ grades }) => {
 
       return (
         <div key={uuidv4()}>
-          {subjectName}
-          <div>
-            {gradeGroup.map(({ id, subjectName, grade, weight }) => (
-              <span key={id}>{grade}</span>
+          <div className="grades-grid__subject">{subjectName}</div>
+          <div className="grades-grid__grades-wrapper">
+            {gradeGroup.map(({ id, grade }) => (
+              <div className="grades-grid__grade" data-grade={grade} key={id}>
+                {grade}
+              </div>
             ))}
           </div>
         </div>
@@ -28,7 +28,12 @@ const GradesGrid = ({ grades }) => {
 
   if (!grades.length) return;
 
-  return <section>{getGradeInfo()}</section>;
+  return (
+    <section className="grades-grid">
+      <h3 className="grades-grid__title">Grades</h3>
+      {getGradeInfo()}
+    </section>
+  );
 };
 
 GradesGrid.propTypes = {

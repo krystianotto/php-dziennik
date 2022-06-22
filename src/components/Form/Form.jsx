@@ -31,9 +31,9 @@ const Form = ({ type }) => {
   }, [data, type]);
 
   return (
-    <>
+    <div className="form">
       {type === REGISTER_TYPE && (
-        <>
+        <div className="form__input-group">
           <label>Nazwa</label>
           <input
             type="text"
@@ -41,27 +41,31 @@ const Form = ({ type }) => {
               setData((data) => ({ ...data, name: e.target.value }));
             }}
           />
-        </>
+        </div>
       )}
 
-      <label>Email</label>
-      <input
-        type="email"
-        onChange={(e) => {
-          setData((data) => ({ ...data, email: e.target.value }));
-        }}
-      />
+      <div className="form__input-group">
+        <label>Email</label>
+        <input
+          type="email"
+          onChange={(e) => {
+            setData((data) => ({ ...data, email: e.target.value }));
+          }}
+        />
+      </div>
 
-      <label>Password</label>
-      <input
-        type="password"
-        onChange={(e) => {
-          setData((data) => ({ ...data, password: e.target.value }));
-        }}
-      />
+      <div className="form__input-group">
+        <label>Password</label>
+        <input
+          type="password"
+          onChange={(e) => {
+            setData((data) => ({ ...data, password: e.target.value }));
+          }}
+        />
+      </div>
 
       <button onClick={handleButtonClick}>{type}</button>
-    </>
+    </div>
   );
 };
 

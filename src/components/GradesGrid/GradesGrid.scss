@@ -1,0 +1,55 @@
+.grades-grid {
+  &__title {
+    padding-bottom: 8px;
+    border-bottom: 1px solid rgba(0, 0, 0, .05);
+    font-size: 27px;
+  }
+
+  &__subject {
+    padding-bottom: 8px;
+    border-bottom: 1px solid rgba(0, 0, 0, .05);
+    font-size: 22px;
+    margin: 30px 0 15px 0;
+  }
+
+  &__grades-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+  }
+
+  &__grade {
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    color: white;
+    font-weight: 500;
+    font-size: 18px;
+    border-radius: 4px;
+
+    &[data-grade="1"] {
+      background-color: #D75858;
+    }
+
+    &[data-grade="2"] {
+      background-color: #9172B4;
+    }
+
+    &[data-grade="3"] {
+      background-color: #D8B12A;
+    }
+
+    &[data-grade="4"] {
+      background-color: #4CA7E1;
+    }
+
+    &[data-grade="5"] {
+      background-color: #2DBE93;
+    }
+
+    &[data-grade="6"] {
+      background-color: #A82DBE;
+    }
+  }
+}

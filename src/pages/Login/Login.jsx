@@ -4,8 +4,8 @@ import Form from 'components/Form';
 
 const Login = () => {
   return (
-    <section>
-      <div>Login View</div>
+    <section className="login">
+      <div className="login__title">Log In</div>
       <Form type="Login" />
     </section>
   );

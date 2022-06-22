@@ -47,11 +47,12 @@ const UserSingleDetail = ({ fieldName, inputType, value, onClick }) => {
   }, [value]);
 
   return (
-    <div>
-      <div>
+    <div className="user-single-details">
+      <div className="user-single-details__label">
         <label>{fieldNameToLabel[fieldName]}</label>
       </div>
       <input
+        className="user-single-details__input"
         disabled={!isEditMode}
         type={inputType}
         value={inputValue}
@@ -60,17 +61,17 @@ const UserSingleDetail = ({ fieldName, inputType, value, onClick }) => {
         name={fieldName}
       />
       {!isEditMode && (
-        <button name={BUTTON_TYPE_EDIT} onClick={handleButtonClick}>
+        <button className="btn" name={BUTTON_TYPE_EDIT} onClick={handleButtonClick}>
           {BUTTON_TYPE_EDIT}
         </button>
       )}
       {isEditMode && (
-        <button name={BUTTON_TYPE_SAVE} onClick={handleButtonClick}>
+        <button className="btn btn--green" name={BUTTON_TYPE_SAVE} onClick={handleButtonClick}>
           {BUTTON_TYPE_SAVE}
         </button>
       )}
       {isEditMode && (
-        <button name={BUTTON_TYPE_CANCEL} onClick={handleButtonClick}>
+        <button className="btn" name={BUTTON_TYPE_CANCEL} onClick={handleButtonClick}>
           {BUTTON_TYPE_CANCEL}
         </button>
       )}
