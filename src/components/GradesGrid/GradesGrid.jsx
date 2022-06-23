@@ -30,7 +30,7 @@ const GradesGrid = ({ grades }) => {
 
   return (
     <section className="grades-grid">
-      <h3 className="grades-grid__title">Grades</h3>
+      <h3 className="grades-grid__title">Oceny</h3>
       {getGradeInfo()}
     </section>
   );

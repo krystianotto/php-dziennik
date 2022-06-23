@@ -55,7 +55,7 @@ const Form = ({ type }) => {
       </div>
 
       <div className="form__input-group">
-        <label>Password</label>
+        <label>Hasło</label>
         <input
           type="password"
           onChange={(e) => {

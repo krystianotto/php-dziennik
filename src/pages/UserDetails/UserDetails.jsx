@@ -96,7 +96,7 @@ const UserDetails = () => {
 
   return (
     <section className="user-details">
-      <h3 className="user-details__title">About You</h3>
+      <h3 className="user-details__title">Twoje dane</h3>
       {renderUserData()}
     </section>
   );

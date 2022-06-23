@@ -5,7 +5,7 @@ import Form from 'components/Form';
 const Login = () => {
   return (
     <section className="login">
-      <div className="login__title">Log In</div>
+      <div className="login__title">Logowanie</div>
       <Form type="Login" />
     </section>
   );

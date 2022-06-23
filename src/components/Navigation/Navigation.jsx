@@ -11,28 +11,28 @@ const Navigation = () => {
     <nav className="navigation">
       {!isUserLoggedIn && (
         <NavLink className="navigation__link" to="register">
-          Register
+          Rejestracja
         </NavLink>
       )}
       {!isUserLoggedIn && (
         <NavLink className="navigation__link" to="login">
-          Login
+          Logowanie
         </NavLink>
       )}
       {isUserLoggedIn && (
         <NavLink className="navigation__link" to="userdetails">
-          User Details
+          Dane
         </NavLink>
       )}
       {isUserLoggedIn && (
         <NavLink className="navigation__link" to="grades">
-          Grades
+          Oceny
         </NavLink>
       )}
 
       {isUserLoggedIn && (
         <div className="navigation__link" onClick={() => setUserData({})}>
-          LogOut
+          Wyloguj się
         </div>
       )}
     </nav>

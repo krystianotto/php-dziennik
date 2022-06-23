@@ -21,10 +21,15 @@ code {
 
 .container {
   display: flex;
-  // flex-direction: column-reverse;
   height: 100%;
   margin: 0 24px 66px 24px;
   justify-content: space-between;
+
+  @include media-breakpoint('desktop') {
+    margin: 0 auto;
+    max-width: 1204px;
+    margin-bottom: 50px;
+  }
 
   &:first-child {
     width: 100%;

@@ -6,7 +6,7 @@ const BUTTON_TYPE_SAVE = 'Save';
 const BUTTON_TYPE_CANCEL = 'Cancel';
 
 const fieldNameToLabel = {
-  name: 'Name',
+  name: 'Imię',
   surname: 'Nazwisko',
   country: 'Państwo',
   street: 'Ulica',
